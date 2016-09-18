@@ -3,11 +3,8 @@
 #Examples:
 
 #Given "abcabcbb", the answer is "abc", which the length is 3.
-
 #Given "bbbbb", the answer is "b", with the length of 1.
-
 #Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
-
 #https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 str = "xxyzzqw"
@@ -18,15 +15,11 @@ d = {}
 i = 0
 for i in range (len(str)):
     if str[i] not in d:
-        print ("1 "+str[i])
         d[str[i]] = 1
         count += 1
 
     else:
-        print(d)
-        print ("2 " + str[i])
         l.append((len(str[j-1:i]), str[j-1:i]))
-        print (l)
         j=i+1
         count = 1
         d.clear()
