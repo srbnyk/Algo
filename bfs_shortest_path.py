@@ -3,6 +3,8 @@
 #Given  queries in the form of a graph and some starting node, , perform each query by calculating the shortest distance from starting node  to all the other nodes in the graph. Then print a single line of  space-separated integers listing node 's shortest distance to each of the  other nodes (ordered sequentially by node number); if  is disconnected from a node, print  as the distance to that node.
 
 def bfs_shortest(graph,initial,final):
+    if graph[final] is None:
+        return -1
     visited = set()
     stack = [initial]
     path = 0
@@ -10,10 +12,12 @@ def bfs_shortest(graph,initial,final):
         item = stack.pop()
         if item not in visited:
             visited.add(item)
-            l = [x for x in graph[initial] if x not in visited if x not in stack]
-            path += 6
+            l = [x for x in graph[item] if x not in visited if x not in stack]
             if final in l:
+                path += 6
                 return path
+            else:
+                path += 6
             stack = l+stack
     return -1
 
@@ -41,4 +45,6 @@ for i in range(int(input())):
     for i in range(1,nodes+1):
         if i != initial:
             t.append(bfs_shortest(d,initial,i))
-    print(t)
+    
+    s = " ".join([str(x) for x in t])
+    print(s)
