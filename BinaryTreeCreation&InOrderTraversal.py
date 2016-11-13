@@ -70,3 +70,24 @@ def create_tree():
 
     bt.pre_order()
 create_tree()
+
+
+
+for Level order traversal:
+    
+        
+    def level_order(self):
+        return self.level_order_helper(self.root)
+    
+    def level_order_helper(self, node):
+        if node:
+            nl = []
+            nl.append(node)
+            while nl:
+                temp = nl.pop(0)
+                print(temp.data)
+                if temp.left:
+                    nl.append(temp.left)
+                    if temp.right:
+                        nl.append(temp.right)
+                        
