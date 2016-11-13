@@ -76,18 +76,18 @@ create_tree()
 for Level order traversal:
     
         
-    def level_order(self):
+def level_order(self):
         return self.level_order_helper(self.root)
     
     def level_order_helper(self, node):
         if node:
-            nl = []
-            nl.append(node)
-            while nl:
-                temp = nl.pop(0)
+            self.queue = []
+            self.queue.append(node)
+            while self.queue:
+                temp = self.queue.pop(0)
                 print(temp.data)
                 if temp.left:
-                    nl.append(temp.left)
+                    self.queue.append(temp.left)
                     if temp.right:
-                        nl.append(temp.right)
+                        self.queue.append(temp.right)
                         
