@@ -34,3 +34,40 @@ class Solution(object):
         
         return head
             
+#second approach:
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        
+        node = ListNode(0)
+        node.next = head
+        temp1 = node
+        temp2 = node
+        
+        while n != 0:
+            temp2 = temp2.next
+            n -= 1
+        
+        while temp2.next:
+            temp2 = temp2.next
+            temp1 = temp1.next
+        
+        if temp1.next == head:
+            head = head.next
+           
+        else:
+            temp1.next = temp1.next.next
+        
+        return head
+        
